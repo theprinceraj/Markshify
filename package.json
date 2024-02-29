@@ -1,5 +1,17 @@
 {
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "name": "smart-sheet-generator",
+  "description": "A scanner web-app which will scan the document and create a table data in csv file. It is very useful for exam cell. Exam cell can easily generate student semester wise marks table in csv file. If the scanner continue scanning same types of results for multiple student then same csv file will be modified.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
 }
