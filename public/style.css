@@ -25,6 +25,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
 }
 
 nav div {
@@ -77,8 +78,64 @@ section {
     font-weight: 600;
     font-size: 3rem;
 }
+
 .section-heading h6 {
     font-size: 1.1rem;
     font-weight: 500;
     font-style: italic;
+}
+
+
+/* Media Queries */
+@media (max-width: 1054px) {
+    nav div {
+        width: 35%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav div {
+        width: 45%;
+    }
+
+    nav div h3 {
+        font-size: 1rem;
+    }
+
+    .section-heading h1 {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 580px) {
+    nav div {
+        width: 50%;
+    }
+
+    nav div h3 {
+        font-size: 0.8rem;
+    }
+
+    .section-heading h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    nav div {
+        width: 60%;
+    }
+
+    nav div h3 {
+        font-size: 0.6rem;
+    }
+
+    .section-heading h1 {
+        font-size: 1.1rem;
+    }
+
+    .section-heading h6 {
+        font-size: 0.8rem;
+    }
 }
