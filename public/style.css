@@ -85,6 +85,27 @@ section {
     font-style: italic;
 }
 
+.section-content {
+    width: 80%;
+}
+
+#input-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#marksheetInputField {
+    width: 75%;
+    background-color: red;
+    padding: 1rem 0;
+}
+
+.hidden-input {
+    display: none;
+}
+
 
 /* Media Queries */
 @media (max-width: 1054px) {
