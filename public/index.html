@@ -46,7 +46,14 @@
 
       <div class="section-content">
         <form id="input-form">
-          <input type="file" name="marksheetInput" id="marksheetInputField" />
+          <label for="marksheetInputField">Choose Image</label>
+          <input
+            type="file"
+            name="marksheetInput"
+            id="marksheetInputField"
+            class="hidden-input"
+          />
+          <input type="text" name="fileName" id="file-name-field" disabled>
           <button>Scan Marksheet</button>
         </form>
       </div>
