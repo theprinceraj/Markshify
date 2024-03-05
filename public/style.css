@@ -102,6 +102,12 @@ section {
     padding: 1rem 0;
 }
 
+.result {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 .hidden-input {
     display: none;
 }
