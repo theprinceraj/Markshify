@@ -4,7 +4,7 @@ dotenv.config();
 
 import { toBase64Format } from "../utilities/toBase64Format.js";
 
-export default async function ocrScanFile(inputFile) {
+export async function ocrScanFile(inputFile) {
   try {
     const base64String = await toBase64Format(inputFile);
     let formData = new FormData();
@@ -26,6 +26,8 @@ export default async function ocrScanFile(inputFile) {
 
     const data = await response.json();
     console.log(data.ParsedResults[0].ParsedText);
+
+    return data.ParsedResults[0].ParsedText;
   } catch (error) {
     console.log(error);
   }
