@@ -14,8 +14,15 @@ app.use("/", (req, res) => {
   res.send(webMarkup);
 });
 
+import { ocrScanFile } from "./controllers/scanner.js";
+app.use("/api/scanner", (req, res) => {
+  const { image } = req.body;
+  const ocrString = ocrScanFile(image);
+  res.send(ocrString);
+});
+
 app.listen(port, () => {
-  console.log("Made by Team Dhruv!");
+  console.log("Made by Team Dhruv❤️✨!");
 });
 
 export default app;
