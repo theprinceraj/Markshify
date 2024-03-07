@@ -14,11 +14,23 @@ app.use("/", (req, res) => {
   res.send(webMarkup);
 });
 
-import { ocrScanFile } from "./controllers/scanner.js";
-app.use("/api/scanner", (req, res) => {
-  const { image } = req.body;
-  const ocrString = ocrScanFile(image);
-  res.send(ocrString);
+import { ocrScanFile } from "../src/controllers/scanner.js";
+app.use(express.json());
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+app.use("/scan", async (req, res) => {
+  const base64versionImage = req.body.image;
+  if (!base64versionImage) {
+    return res.status(400).json({ error: "Image data is missing in the request body" });
+  }
+
+  try {
+    const ocrString = await ocrScanFile(base64versionImage);
+    console.log(ocrString);
+    res.json({ ocrResponse: ocrString });
+  } catch (error) {
+    console.error("Error processing OCR:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.listen(port, () => {

@@ -32,5 +32,4 @@ export async function ocrScanFile(inputFile) {
     console.log(error);
   }
 }
-const assetFile = fs.readFileSync("./public/assets/image.png");
-ocrScanFile(assetFile);
+// const assetFile = fs.re
