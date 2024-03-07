@@ -52,11 +52,16 @@
             name="marksheetInput"
             id="marksheetInputField"
             class="hidden-input"
+            required
           />
-          <input type="text" name="fileName" id="file-name-field" disabled>
-          <button>Scan Marksheet</button>
+          <input type="text" name="fileName" id="file-name-field" disabled />
+          <button id="scan-btn">Scan Marksheet</button>
         </form>
       </div>
     </section>
+    <section id="output"></section>
+
+    <script src="scripts/sendApiReq.js"></script>
+    <script src="scripts/formFunctionality.js"></script>
   </body>
 </html>
