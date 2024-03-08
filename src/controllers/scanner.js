@@ -1,4 +1,3 @@
-import fs from "fs";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -32,4 +31,3 @@ export async function ocrScanFile(inputFile) {
     console.log(error);
   }
 }
-// const assetFile = fs.re
