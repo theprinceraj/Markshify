@@ -6,10 +6,9 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 
-import { ocrScanFile } from "../src/controllers/scanner.js";
 app.use(express.json({ limit: "10mb" }));
+import { ocrScanFile } from "../src/controllers/scanner.js";
 app.use("/scan", async (req, res) => {
-  res.json({ message: "Hello from the backend!" });
   const base64versionImage = req.body.image;
   if (!base64versionImage) {
     return res

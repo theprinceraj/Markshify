@@ -5,12 +5,11 @@ import { toBase64Format } from "../utilities/toBase64Format.js";
 
 export async function ocrScanFile(inputFile) {
   try {
-    const base64String = await toBase64Format(inputFile);
     let formData = new FormData();
     formData.append("apikey", process.env.OCR_SPACE_API_KEY);
-    formData.append("base64Image", base64String);
+    formData.append("base64Image", inputFile);
     formData.append("filetype", "png");
-    formData.append("isTable", true)
+    formData.append("isTable", true);
 
     const response = await fetch("https://api.ocr.space/parse/image", {
       method: "POST",
@@ -24,7 +23,11 @@ export async function ocrScanFile(inputFile) {
     }
 
     const data = await response.json();
-    console.log(data.ParsedResults[0].ParsedText);
+    console.log(
+      "\n\nSCANNER.JS FILE\n" +
+        data.ParsedResults[0].ParsedText +
+        "\n\nSCANNER.JS FILE\n"
+    );
 
     return data.ParsedResults[0].ParsedText;
   } catch (error) {
