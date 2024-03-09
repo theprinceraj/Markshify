@@ -7,7 +7,7 @@ app.use(express.static("public"));
 
 app.use(express.json({ limit: "10mb" }));
 import { ocrSpace } from "ocr-space-api-wrapper";
-app.use("/scan", async (req, res) => {
+app.use("/api/scan", async (req, res) => {
   const base64versionImage = req.body.image;
   if (!base64versionImage) {
     return res

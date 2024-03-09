@@ -6,7 +6,7 @@ async function sendApiReq(imageInput) {
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ image: base64version }),
     };
-    const response = await fetch("/scan", requestOptions);
+    const response = await fetch("/api/scan", requestOptions);
 
     if (response.ok) {
       const data = await response.json();
