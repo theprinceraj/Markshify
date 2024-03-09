@@ -8,10 +8,19 @@ class Student {
     SEMESTERS,
     currentSemester,
     currentCGPA
-  ) {}
+  ) {
+    this.registrationNumber = registrationNumber;
+    this.studentName = studentName;
+    this.fatherName = fatherName;
+    this.motherName = motherName;
+    this.courseName = courseName;
+    this.SEMESTERS = SEMESTERS;
+    this.currentSemester = currentSemester;
+    this.currentCGPA = currentCGPA;
+  }
 
   displayInfo() {
-    console.log(this.motherName);
+    console.log(this);
   }
 }
 
@@ -46,9 +55,9 @@ export async function extractRelevantInformation(ocrString) {
     courseName,
     {},
     currentSemester,
-    0.00
+    0.0
   );
-    StudentObj.displayInfo();
+  StudentObj.displayInfo();
 }
 
 const inputString = `
