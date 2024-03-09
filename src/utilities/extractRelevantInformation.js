@@ -5,33 +5,50 @@ class Student {
     fatherName,
     motherName,
     courseName,
-    SEMESTER = {
-      one,
-      two,
-      three,
-      four,
-      five,
-      six,
-      seven,
-      eight,
-    },
+    SEMESTERS,
+    currentSemester,
     currentCGPA
   ) {}
 
   displayInfo() {
-    console.log(this);
+    console.log(this.motherName);
   }
 }
 
 export async function extractRelevantInformation(ocrString) {
-  let StudentObj = new Student();
-
   let studentNameRegeEx = /Student Name:\s*([\w\s]+)\n/;
   let studentName = ocrString.match(studentNameRegeEx)[1];
 
   let registrationNumberRegex = /Registration No:\s*(\d+)\n/;
-  let registrationNumber = ocrString.match(registrationNumberRegex)[1];
-  console.log(studentName, "\n", registrationNumber);
+  let registrationNumber = ocrString.match(registrationNumberRegex)[1].trim();
+
+  let fatherNameRegex = /Father Name:\s+([^\n\r]+?)(?=\s+MotherName|$)/;
+  let fatherName = ocrString.match(fatherNameRegex)[1].trim();
+
+  let motherNameRegex = /MotherName:\s*([\w\s]+)\n/;
+  let motherName = ocrString.match(motherNameRegex)[1].trim();
+
+  let courseNameRegex =
+    /Course Name:\s+(\d+\s*-\s*[A-Z\s]+)\s*(?=\b(?!Subject\b|PRACTICAL\b)\w)/;
+  let courseName = ocrString.match(courseNameRegex)[1].trim();
+
+  let currentSemesterRegex = /Semester\s*:\s*([^\n\r]+?)(?=\s+Examination|$)/;
+  let currentSemester = ocrString.match(currentSemesterRegex)[1].trim();
+
+  // let currentCGPARegex = /CGPA\s*:\s*(\d+\.\d+)/;
+  // let currentCGPA = ocrString.match(currentCGPARegex)[1].trim();
+
+  let StudentObj = new Student(
+    registrationNumber,
+    studentName,
+    fatherName,
+    motherName,
+    courseName,
+    {},
+    currentSemester,
+    0.00
+  );
+    StudentObj.displayInfo();
 }
 
 const inputString = `
