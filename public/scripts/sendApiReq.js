@@ -1,3 +1,9 @@
+/**
+ * Sends an API request with the provided image input, and returns the OCR response if successful.
+ *
+ * @param {type} imageInput - the image input to be sent in the API request
+ * @return {type} the OCR response if the API request is successful, otherwise null
+ */
 async function sendApiReq(imageInput) {
   try {
     const base64version = await convertToBase64(imageInput);
@@ -21,6 +27,12 @@ async function sendApiReq(imageInput) {
   }
 }
 
+/**
+ * Asynchronously converts the given file to base64 encoding.
+ *
+ * @param {File} file - the file to be converted to base64
+ * @return {Promise<string>} a promise that resolves with the base64 encoded string
+ */
 async function convertToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
