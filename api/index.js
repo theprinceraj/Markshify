@@ -16,7 +16,6 @@ app.use("/scan", async (req, res) => {
   }
 
   try {
-    // const ocrString = await ocrScanFile(base64versionImage);
     const ocrResponse = await ocrSpace(base64versionImage, {
       apiKey: process.env.OCR_SPACE_API_KEY,
     });
