@@ -1,5 +1,3 @@
-import { parse } from "dotenv";
-
 export function extractRelevantInformation(ocrLines) {
   let currentSemester = convertRomanNumeralToInteger(
     ocrLines[4].LineText?.split(":")[1].trim()
