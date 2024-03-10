@@ -1,29 +1,30 @@
-class Student {
-  constructor(
-    registrationNumber,
-    studentName,
-    fatherName,
-    motherName,
-    courseName,
-    SEMESTERS,
-    currentSemester,
-    currentCGPA
-  ) {
-    this.registrationNumber = registrationNumber;
-    this.studentName = studentName;
-    this.fatherName = fatherName;
-    this.motherName = motherName;
-    this.courseName = courseName;
-    this.SEMESTERS = SEMESTERS;
-    this.currentSemester = currentSemester;
-    this.currentCGPA = currentCGPA;
-  }
-
-  displayInfo() {
-    console.log(this);
-  }
+export function extractRelevantInformation(ocrLines) {
+  let currentSemester = convertRomanNumeralToInteger(ocrLines[0].LineText.split(":")[1].trim());
+  
+  console.log(currentSemester);
 }
 
-export function extractRelevantInformation(ocrLines) {
-  console.log(ocrLines[4].text);
+function convertRomanNumeralToInteger(semesterInRoman) {
+  switch (semesterInRoman) {
+    case "I":
+      return 1;
+    case "II":
+      return 2;
+    case "III":
+      return 3;
+    case "IV":
+      return 4;
+    case "V":
+      return 5;
+    case "VI":
+      return 6;
+    case "VII":
+      return 7;
+    case "VIII":
+      return 8;
+    case "IX":
+      return 9;
+    case "X":
+      return 10;
+  }
 }
