@@ -12,20 +12,28 @@ export function extractRelevantInformation(ocrLines) {
   let theoryMarksSem1_021201 = parseInt(ocrLines[78].LineText.trim());
   let theoryMarksSem1_211202 = parseInt(ocrLines[79].LineText.trim());
   let theoryMarksSem1_231201 = parseInt(ocrLines[80].LineText.trim());
-  console.log(
-    formatOutput(
-      registrationNo,
-      student,
-      father,
-      mother,
-      currentSemester,
-      course,
-      theoryMarksSem1_011201,
-      theoryMarksSem1_011202,
-      theoryMarksSem1_021201,
-      theoryMarksSem1_211202,
-      theoryMarksSem1_231201
-    )
+  let practicalMarksSem1_011201 = parseInt(ocrLines[82].LineText.trim());
+  let practicalMarksSem1_011202 = parseInt(ocrLines[83].LineText.trim());
+  let practicalMarksSem1_021201 = parseInt(ocrLines[84].LineText.trim());
+  let practicalMarksSem1_021203 = parseInt(ocrLines[85].LineText.trim());
+  let practicalMarksSem1_231201 = parseInt(ocrLines[86].LineText.trim());
+  return formatOutput(
+    registrationNo,
+    student,
+    father,
+    mother,
+    currentSemester,
+    course,
+    theoryMarksSem1_011201,
+    theoryMarksSem1_011202,
+    theoryMarksSem1_021201,
+    theoryMarksSem1_211202,
+    theoryMarksSem1_231201,
+    practicalMarksSem1_011201,
+    practicalMarksSem1_011202,
+    practicalMarksSem1_021201,
+    practicalMarksSem1_021203,
+    practicalMarksSem1_231201
   );
 }
 
@@ -40,22 +48,37 @@ function formatOutput(
   theoryMarksSem1_011202,
   theoryMarksSem1_021201,
   theoryMarksSem1_211202,
-  theoryMarksSem1_231201
+  theoryMarksSem1_231201,
+  practicalMarksSem1_011201,
+  practicalMarksSem1_011202,
+  practicalMarksSem1_021201,
+  practicalMarksSem1_021203,
+  practicalMarksSem1_231201
 ) {
-  return (
-    "Registration Number,Name,Father,Mother,Course,Semester,Theory Marks\n"+
+  const formattedString =
+    "Registration Number,Name,Father,Mother,Course,Semester,Sem 1 Theory Marks,Sem 1 Practical Marks\n" +
     `${registrationNo}, ` +
-      `${student}, ` +
-      `${father}, ` +
-      `${mother}, ` +
-      `${currentSemester}, ` +
-      `${course}, ` +
-      `${theoryMarksSem1_011201}, ` +
-      `${theoryMarksSem1_011202}, ` +
-      `${theoryMarksSem1_021201}, ` +
-      `${theoryMarksSem1_211202}, ` +
-      `${theoryMarksSem1_231201}`
-  );
+    `${student}, ` +
+    `${father}, ` +
+    `${mother}, ` +
+    `${currentSemester}, ` +
+    `${course}, ` +
+    `"` +
+    `011201 - ${theoryMarksSem1_011201}, ` +
+    `011201 - ${theoryMarksSem1_011202}, ` +
+    `021201 - ${theoryMarksSem1_021201}, ` +
+    `211202 - ${theoryMarksSem1_211202}, ` +
+    `231201 - ${theoryMarksSem1_231201}` +
+    `",` +
+    `"` +
+    `011201L - ${practicalMarksSem1_011201}, ` +
+    `011201L - ${practicalMarksSem1_011202}, ` +
+    `021201L - ${practicalMarksSem1_021201}, ` +
+    `021203L - ${practicalMarksSem1_021203}, ` +
+    `231201L - ${practicalMarksSem1_231201}` +
+    `"`;
+  // console.log(formattedString);
+  return formattedString;
 }
 
 function convertRomanNumeralToInteger(semesterInRoman) {
