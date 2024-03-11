@@ -77,7 +77,6 @@ function formatOutput(
     `021203L - ${practicalMarksSem1_021203}, ` +
     `231201L - ${practicalMarksSem1_231201}` +
     `"`;
-  // console.log(formattedString);
   return formattedString;
 }
 

@@ -1,16 +1,17 @@
 /**
  * Displays the OCR response in the specified output element.
  *
- * @param {string} responseString - The OCR response to be displayed
+ * @param {string} ocrString - The OCR response to be displayed
  * @return {void}
  */
-function displayOcrResponse(responseString) {
-  if (!responseString) {
+function displayOcrResponse(ocrString, formattedString) {
+  if (!ocrString) {
     alert(
       "An error encountered. Please recheck that you have scanned the correct file and that it is absolutely clear."
     );
     return;
   }
+  console.log(formattedString);
   const outputDiv = document.getElementById("output");
-  outputDiv.innerText = responseString;
+  outputDiv.innerText = ocrString;
 }
