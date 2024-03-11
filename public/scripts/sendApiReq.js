@@ -17,7 +17,7 @@ async function sendApiReq(imageInput) {
     if (response.ok) {
       const data = await response.json();
       const { ocrString, formattedString } = data;
-      return { ocrString, formattedString };
+      return [ocrString, formattedString];
     } else {
       console.error("Error:", response.statusText);
     }
