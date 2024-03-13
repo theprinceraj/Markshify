@@ -16,8 +16,8 @@ async function sendApiReq(imageInput) {
 
     if (response.ok) {
       const data = await response.json();
-      const ocrString = data.ocrResponse;
-      return ocrString;
+      const { ocrResponse, formattedString } = data;
+      return [ocrResponse, formattedString];
     } else {
       console.error("Error:", response.statusText);
     }
@@ -38,7 +38,7 @@ async function convertToBase64(file) {
     const reader = new FileReader();
     reader.onload = () => {
       const base64String = reader.result.split(",")[1];
-      resolve(`data:${file.type};base64,`+base64String);
+      resolve(`data:${file.type};base64,` + base64String);
     };
     reader.onerror = (error) => {
       reject(error);

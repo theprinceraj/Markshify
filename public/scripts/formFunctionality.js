@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const selectedFile = inputFile.files[0];
     if (selectedFile) {
-      const responseString = await sendApiReq(selectedFile);
-      displayOcrResponse(responseString);;
+      const [ocrString, formattedString] = await sendApiReq(selectedFile);
+      displayOcrResponse(ocrString, formattedString);
     } else {
       console.log("No file selected");
     }
