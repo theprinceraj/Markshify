@@ -48,6 +48,72 @@ function createRectangles(type) {
           height: 68,
         },
       ];
+    case "gpa":
+      return [
+        {
+          // Semester 1 GPA
+          left: 217,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 2 GPA
+          left: 430,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 3 GPA
+          left: 638,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 4 GPA
+          left: 800,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 5 GPA
+          left: 999,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 6 GPA
+          left: 1175,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 7 GPA
+          left: 1350,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Semester 8 GPA
+          left: 1850,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+        {
+          // Current GPA
+          left: 1850,
+          top: 1721,
+          width: 202,
+          height: 63,
+        },
+      ];
     default:
       if (!["theory", "practical"].includes(type))
         return "Error: Invalid type!";
@@ -129,7 +195,7 @@ function createRectangles(type) {
 
 console.log("Begun!");
 const worker = await createWorker("eng");
-const rectangles = createRectangles("semester");
+const rectangles = createRectangles("gpa");
 (async () => {
   const values = [];
   await worker.setParameters({
