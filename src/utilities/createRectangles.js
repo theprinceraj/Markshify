@@ -1,3 +1,5 @@
+import { createWorker } from "tesseract.js";
+
 /**
  * Generates an array of rectangles based on the type provided.
  *
@@ -61,9 +63,9 @@ export function createRectangles(type) {
         },
         {
           // Mother's Name
-          left: 269,
-          top: 1558,
-          width: 555,
+          left: 1701,
+          top: 269,
+          width: 412,
           height: 69,
         },
         {
@@ -92,44 +94,44 @@ export function createRectangles(type) {
         },
         {
           // Semester 3 GPA
-          left: 631,
+          left: 640,
           top: 1721,
-          width: 202,
+          width: 180,
           height: 63,
         },
         {
           // Semester 4 GPA
-          left: 808,
+          left: 820,
           top: 1721,
-          width: 202,
+          width: 175,
           height: 63,
         },
         {
           // Semester 5 GPA
-          left: 982,
+          left: 1000,
           top: 1721,
-          width: 202,
+          width: 175,
           height: 63,
         },
         {
           // Semester 6 GPA
-          left: 1161,
+          left: 1174,
           top: 1721,
-          width: 202,
+          width: 175,
           height: 63,
         },
         {
           // Semester 7 GPA
-          left: 1338,
+          left: 1353,
           top: 1721,
-          width: 202,
+          width: 175,
           height: 63,
         },
         {
           // Semester 8 GPA
-          left: 1518,
+          left: 1530,
           top: 1721,
-          width: 202,
+          width: 175,
           height: 63,
         },
         {
@@ -219,24 +221,24 @@ export function createRectangles(type) {
   }
 }
 
-// console.log("Begun!");
-// const worker = await createWorker("eng");
-// const rectangles = createRectangles("gpa");
-// (async () => {
-//   const values = [];
-//   await worker.setParameters({
-//     tessedit_char_whitelist:
-//       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-//   });
-//   for (let i = 0; i < rectangles.length; i++) {
-//     let {
-//       data: { text },
-//     } = await worker.recognize("croppedImage.png", {
-//       rectangle: rectangles[i],
-//     });
-//     text = text.slice(0, -1);
-//     values.push(text);
-//   }
-//   console.log(values);
-//   await worker.terminate();
-// })();
+console.log("Begun!");
+const worker = await createWorker("eng");
+const rectangles = createRectangles("gpa");
+(async () => {
+  const values = [];
+  await worker.setParameters({
+    tessedit_char_whitelist:
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
+  });
+  for (let i = 0; i < rectangles.length; i++) {
+    let {
+      data: { text },
+    } = await worker.recognize("croppedImage.png", {
+      rectangle: rectangles[i],
+    });
+    text = text.slice(0, -1);
+    values.push(text);
+  }
+  console.log(values);
+  await worker.terminate();
+})();
