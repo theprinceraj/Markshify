@@ -1,5 +1,10 @@
-import { ocrSpace } from "ocr-space-api-wrapper";
-import { extractRelevantInformation } from "../utilities/extractRelevantInformation.js";
+import { createWorker } from "tesseract.js";
+import {
+  convertRomanNumeralToInteger,
+  extractRelevantInformation,
+} from "../utilities/extractRelevantInformation.js";
+import { createRectangles } from "../utilities/createRectangles.js";
+
 export async function scan(req, res) {
   const base64versionImage = req.body.image;
   if (!base64versionImage) {
@@ -9,19 +14,29 @@ export async function scan(req, res) {
   }
 
   try {
-    const ocrResponse = await ocrSpace(base64versionImage, {
-      apiKey: process.env.OCR_SPACE_API_KEY,
-      scale: true,
-      isTable: true,
-      isOverlayRequired: true,
+    const worker = await createWorker("eng");
+    await worker.setParameters({
+      tessedit_char_whitelist:
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
     });
-
-    const formattedString = extractRelevantInformation(
-      ocrResponse.ParsedResults[0].TextOverlay.Lines
-    );
-    console.log(formattedString);
-    let ocrString = ocrResponse.ParsedResults[0].ParsedText;
-    res.json({ ocrResponse: ocrString, formattedString: formattedString });
+    const {
+      data: { semInRoman },
+    } = await worker.recognize(base64versionImage, {
+      rectangle: createRectangles("semester")[0].split(":")[1].trim(),
+    });
+    const currentSemesterNumber = convertRomanNumeralToInteger(semInRoman);
+    const {
+      data: { personalInfo },
+    } = await worker.recognize(base64versionImage, {
+      rectangle: createRectangles("personal-info")[0].split(":")[1].trim(),
+    });
+    const [registraionNumber, studentName, fatherName, motherName, courseName] =
+      personalInfo;
+    const semGPAs = await worker.recognize(base64versionImage, {
+      rectangle: createRectangles("gpa")[1].split(":")[1].trim(),
+    });
+    
+    // res.json({ ocrResponse: ocrString, formattedString: formattedString });
   } catch (error) {
     console.error("Error processing OCR:", error);
     res.status(500).json({ error: "Internal Server Error" });
