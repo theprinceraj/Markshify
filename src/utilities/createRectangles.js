@@ -164,7 +164,7 @@ export function createRectangles(type) {
         {
           // Subject 2 Code
           left: 0,
-          top: type == "theory" ? 735 : 1193,
+          top: type == "theory" ? 735 : 1220,
           width: 311,
           height: 63,
         },
@@ -221,24 +221,24 @@ export function createRectangles(type) {
   }
 }
 
-console.log("Begun!");
-const worker = await createWorker("eng");
-const rectangles = createRectangles("gpa");
-(async () => {
-  const values = [];
-  await worker.setParameters({
-    tessedit_char_whitelist:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-  });
-  for (let i = 0; i < rectangles.length; i++) {
-    let {
-      data: { text },
-    } = await worker.recognize("croppedImage.png", {
-      rectangle: rectangles[i],
-    });
-    text = text.slice(0, -1);
-    values.push(text);
-  }
-  console.log(values);
-  await worker.terminate();
-})();
+// console.log("Begun!");
+// const worker = await createWorker("eng");
+// const rectangles = createRectangles("practical");
+// (async () => {
+//   const values = [];
+//   await worker.setParameters({
+//     tessedit_char_whitelist:
+//       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
+//   });
+//   for (let i = 0; i < rectangles.length; i++) {
+//     let {
+//       data: { text },
+//     } = await worker.recognize("croppedImage.png", {
+//       rectangle: rectangles[i],
+//     });
+//     text = text.slice(0, -1);
+//     values.push(text);
+//   }
+//   console.log(values);
+//   await worker.terminate();
+// })();
