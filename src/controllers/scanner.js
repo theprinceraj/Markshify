@@ -35,7 +35,7 @@ export async function scan(req, res) {
     const semGPAs = await worker.recognize(base64versionImage, {
       rectangle: createRectangles("gpa")[1].split(":")[1].trim(),
     });
-    
+
     // res.json({ ocrResponse: ocrString, formattedString: formattedString });
   } catch (error) {
     console.error("Error processing OCR:", error);
