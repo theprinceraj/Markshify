@@ -1,3 +1,9 @@
+/**
+ * Converts a Roman numeral to an integer equivalent.
+ *
+ * @param {string} semesterInRoman - The Roman numeral representing a semester.
+ * @return {number} The integer equivalent of the Roman numeral.
+ */
 export function convertRomanNumeralToInteger(semesterInRoman) {
   switch (semesterInRoman) {
     case "I":

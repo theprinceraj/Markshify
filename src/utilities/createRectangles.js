@@ -1,5 +1,31 @@
-import { createWorker } from "tesseract.js";
-function createRectangles(type) {
+/**
+ * Generates an array of rectangles based on the type provided.
+ *
+ * @param {string} type - The type of rectangles to generate. Valid types are "semester", "personal-info", "gpa", "theory", or "practical".
+ * @return {Array} An array of objects representing rectangles with specific dimensions based on the type.
+ *   - If the type is "semester", an array with a single rectangle object is returned:
+ *     - left: The x-coordinate of the rectangle's left edge (number).
+ *     - top: The y-coordinate of the rectangle's top edge (number).
+ *     - width: The width of the rectangle (number).
+ *     - height: The height of the rectangle (number).
+ *   - If the type is "personal-info", an array with five rectangle objects is returned:
+ *     - left: The x-coordinate of the rectangle's left edge (number).
+ *     - top: The y-coordinate of the rectangle's top edge (number).
+ *     - width: The width of the rectangle (number).
+ *     - height: The height of the rectangle (number).
+ *   - If the type is "gpa", an array with nine rectangle objects is returned:
+ *     - left: The x-coordinate of the rectangle's left edge (number).
+ *     - top: The y-coordinate of the rectangle's top edge (number).
+ *     - width: The width of the rectangle (number).
+ *     - height: The height of the rectangle (number).
+ *   - If the type is "theory" or "practical", an array with eight rectangle objects is returned:
+ *     - left: The x-coordinate of the rectangle's left edge (number).
+ *     - top: The y-coordinate of the rectangle's top edge (number).
+ *     - width: The width of the rectangle (number).
+ *     - height: The height of the rectangle (number).
+ *   - If the type is not one of the valid types, the function returns the string "Error: Invalid type!".
+ */
+export function createRectangles(type) {
   switch (type) {
     case "semester":
       return [
@@ -14,38 +40,38 @@ function createRectangles(type) {
       return [
         {
           // Registration Number
-          left: 574,
-          top: 121,
-          width: 610,
-          height: 66,
+          left: 577,
+          top: 122,
+          width: 501,
+          height: 69,
         },
         {
           // Student Name
-          left: 574,
-          top: 191,
-          width: 1538,
-          height: 68,
+          left: 577,
+          top: 192,
+          width: 1358,
+          height: 69,
         },
         {
           // Father's Name
-          left: 572,
-          top: 257,
-          width: 629,
-          height: 73,
+          left: 577,
+          top: 269,
+          width: 565,
+          height: 69,
         },
         {
           // Mother's Name
-          left: 1523,
-          top: 257,
-          width: 591,
-          height: 73,
+          left: 269,
+          top: 1558,
+          width: 555,
+          height: 69,
         },
         {
           // Course Name
-          left: 574,
-          top: 407,
-          width: 1540,
-          height: 68,
+          left: 579,
+          top: 410,
+          width: 1512,
+          height: 69,
         },
       ];
     case "gpa":
@@ -59,58 +85,58 @@ function createRectangles(type) {
         },
         {
           // Semester 2 GPA
-          left: 430,
+          left: 427,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Semester 3 GPA
-          left: 638,
+          left: 631,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Semester 4 GPA
-          left: 800,
+          left: 808,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Semester 5 GPA
-          left: 999,
+          left: 982,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Semester 6 GPA
-          left: 1175,
+          left: 1161,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Semester 7 GPA
-          left: 1350,
+          left: 1338,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Semester 8 GPA
-          left: 1850,
+          left: 1518,
           top: 1721,
           width: 202,
           height: 63,
         },
         {
           // Current GPA
-          left: 1850,
+          left: 1805,
           top: 1721,
-          width: 202,
+          width: 205,
           height: 63,
         },
       ];
@@ -120,7 +146,7 @@ function createRectangles(type) {
 
       return [
         {
-          // Subject 1 Code top:668
+          // Subject 1 Code
           left: 0,
           top: type == "theory" ? 668 : 1140,
           width: 311,
@@ -193,24 +219,24 @@ function createRectangles(type) {
   }
 }
 
-console.log("Begun!");
-const worker = await createWorker("eng");
-const rectangles = createRectangles("semester");
-(async () => {
-  const values = [];
-  await worker.setParameters({
-    tessedit_char_whitelist:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-  });
-  for (let i = 0; i < rectangles.length; i++) {
-    let {
-      data: { text },
-    } = await worker.recognize("croppedImage.png", {
-      rectangle: rectangles[i],
-    });
-    text = text.slice(0, -1);
-    values.push(text);
-  }
-  console.log(values);
-  await worker.terminate();
-})();
+// console.log("Begun!");
+// const worker = await createWorker("eng");
+// const rectangles = createRectangles("gpa");
+// (async () => {
+//   const values = [];
+//   await worker.setParameters({
+//     tessedit_char_whitelist:
+//       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
+//   });
+//   for (let i = 0; i < rectangles.length; i++) {
+//     let {
+//       data: { text },
+//     } = await worker.recognize("croppedImage.png", {
+//       rectangle: rectangles[i],
+//     });
+//     text = text.slice(0, -1);
+//     values.push(text);
+//   }
+//   console.log(values);
+//   await worker.terminate();
+// })();

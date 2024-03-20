@@ -5,7 +5,6 @@
  * @return {type} the OCR response if the API request is successful, otherwise null
  */
 async function sendApiReq(imageInput) {
-  try {
     const base64version = await convertToBase64(imageInput);
     const requestOptions = {
       method: "POST",
@@ -21,10 +20,6 @@ async function sendApiReq(imageInput) {
     } else {
       console.error("Error:", response.statusText);
     }
-  } catch (error) {
-    console.error("Error:", error);
-    return null;
-  }
 }
 
 /**
