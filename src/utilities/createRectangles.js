@@ -32,8 +32,8 @@ export function createRectangles(type) {
     case "semester":
       return [
         {
-          left: 169,
-          top: 1,
+          left: 180,
+          top: 15,
           width: 592,
           height: 63,
         },
@@ -42,36 +42,36 @@ export function createRectangles(type) {
       return [
         {
           // Registration Number
-          left: 577,
-          top: 122,
+          left: 587,
+          top: 132,
           width: 501,
           height: 69,
         },
         {
           // Student Name
-          left: 577,
-          top: 192,
+          left: 587,
+          top: 202,
           width: 1358,
           height: 69,
         },
         {
           // Father's Name
-          left: 577,
-          top: 269,
+          left: 587,
+          top: 279,
           width: 565,
           height: 69,
         },
         {
           // Mother's Name
-          left: 1701,
-          top: 269,
+          left: 1711,
+          top: 279,
           width: 410,
           height: 69,
         },
         {
           // Course Name
-          left: 579,
-          top: 410,
+          left: 589,
+          top: 420,
           width: 1512,
           height: 69,
         },
@@ -80,64 +80,64 @@ export function createRectangles(type) {
       return [
         {
           // Semester 1 GPA
-          left: 217,
-          top: 1721,
+          left: 227,
+          top: 1731,
           width: 202,
           height: 63,
         },
         {
           // Semester 2 GPA
-          left: 427,
-          top: 1721,
+          left: 437,
+          top: 1731,
           width: 202,
           height: 63,
         },
         {
           // Semester 3 GPA
-          left: 640,
-          top: 1721,
+          left: 650,
+          top: 1731,
           width: 180,
           height: 63,
         },
         {
           // Semester 4 GPA
-          left: 820,
-          top: 1721,
+          left: 830,
+          top: 1731,
           width: 175,
           height: 63,
         },
         {
           // Semester 5 GPA
-          left: 1000,
-          top: 1721,
+          left: 1010,
+          top: 1731,
           width: 175,
           height: 63,
         },
         {
           // Semester 6 GPA
-          left: 1174,
-          top: 1721,
+          left: 1184,
+          top: 1731,
           width: 175,
           height: 63,
         },
         {
           // Semester 7 GPA
-          left: 1353,
-          top: 1721,
+          left: 1363,
+          top: 1731,
           width: 175,
           height: 63,
         },
         {
           // Semester 8 GPA
-          left: 1530,
-          top: 1721,
+          left: 1540,
+          top: 1731,
           width: 175,
           height: 63,
         },
         {
           // Current GPA
-          left: 1805,
-          top: 1721,
+          left: 1815,
+          top: 1731,
           width: 205,
           height: 63,
         },
@@ -149,71 +149,71 @@ export function createRectangles(type) {
       return [
         {
           // Subject 1 Code
-          left: 0,
-          top: type == "theory" ? 668 : 1140,
+          left: 10,
+          top: type == "theory" ? 678 : 1150,
           width: 311,
           height: 63,
         },
         {
           // Subject 1 Total Marks
-          left: 1636,
-          top: type == "theory" ? 661 : 1140,
+          left: 1646,
+          top: type == "theory" ? 671 : 1150,
           width: 129,
           height: 73,
         },
         {
           // Subject 2 Code
-          left: 0,
-          top: type == "theory" ? 735 : 1220,
+          left: 10,
+          top: type == "theory" ? 745 : 1230,
           width: 311,
           height: 63,
         },
         {
           // Subject 2 Total Marks
-          left: 1636,
-          top: type == "theory" ? 739 : 1213,
+          left: 1646,
+          top: type == "theory" ? 749 : 1223,
           width: 129,
           height: 73,
         },
         {
           // Subject 3 Code
-          left: 0,
-          top: type == "theory" ? 812 : 1286,
+          left: 10,
+          top: type == "theory" ? 822 : 1296,
           width: 311,
           height: 63,
         },
         {
           // Subject 3 Total Marks
-          left: 1636,
-          top: type == "theory" ? 809 : 1291,
+          left: 1646,
+          top: type == "theory" ? 819 : 1301,
           width: 129,
           height: 73,
         },
         {
           // Subject 4 Code
-          left: 0,
-          top: type == "theory" ? 880 : 1356,
+          left: 10,
+          top: type == "theory" ? 890 : 1366,
           width: 311,
           height: 63,
         },
         {
           // Subject 4 Total Marks
-          left: 1636,
-          top: type == "theory" ? 887 : 1359,
+          left: 1646,
+          top: type == "theory" ? 897 : 1369,
           width: 129,
           height: 73,
         },
         {
           // Subject 5 Code
-          left: 0,
-          top: type == "theory" ? 955 : 1427,
+          left: 10,
+          top: type == "theory" ? 965 : 1437,
           width: 311,
           height: 63,
         },
         {
           // Subject 5 Total Marks
-          left: 1636,
-          top: type == "theory" ? 955 : 1432,
+          left: 1646,
+          top: type == "theory" ? 965 : 1442,
           width: 129,
           height: 73,
         },
@@ -221,24 +221,24 @@ export function createRectangles(type) {
   }
 }
 
-console.log("Begun!");
-const worker = await createWorker("eng");
-const rectangles = createRectangles("semester");
-(async () => {
-  const values = [];
-  await worker.setParameters({
-    tessedit_char_whitelist:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-  });
-  for (let i = 0; i < rectangles.length; i++) {
-    let {
-      data: { text },
-    } = await worker.recognize("processedImage.png", {
-      rectangle: rectangles[i],
-    });
-    text = text.slice(0, -1);
-    values.push(text);
-  }
-  console.log(values);
-  await worker.terminate();
-})();
+// console.log("Begun!");
+// const worker = await createWorker("eng");
+// const rectangles = createRectangles("practical");
+// (async () => {
+//   const values = [];
+//   await worker.setParameters({
+//     tessedit_char_whitelist:
+//       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
+//   });
+//   for (let i = 0; i < rectangles.length; i++) {
+//     let {
+//       data: { text },
+//     } = await worker.recognize("processedImage.png", {
+//       rectangle: rectangles[i],
+//     });
+//     text = text.slice(0, -1);
+//     values.push(text);
+//   }
+//   console.log(values);
+//   await worker.terminate();
+// })();

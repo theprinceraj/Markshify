@@ -12,7 +12,7 @@ export async function preProcessImage(base64Image) {
     .png()
     .toBuffer({ resolveWithObject: false });
   const preProcessedImage = await addBorder(response, 5, {
-    r: 255,
+    r: 0,
     g: 0,
     b: 0,
     alpha: 1,
@@ -21,7 +21,7 @@ export async function preProcessImage(base64Image) {
   return preProcessedImage;
 }
 
-const file = await fs.readFileSync("./croppedImage.png");
+// const file = await fs.readFileSync("./croppedImage.png");
 async function addBorder(buffer, borderSize, borderColor) {
   try {
     const img = sharp(buffer);
@@ -65,4 +65,4 @@ async function addBorder(buffer, borderSize, borderColor) {
     );
   }
 }
-addBorder(file, 10, { r: 255, g: 0, b: 0, alpha: 1 });
+// addBorder(file, 10, { r: 255, g: 0, b: 0, alpha: 1 });
