@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "main": "api/index.js",
   "dependencies": {
-    "csv": "^6.3.8",
-    "csv-generate": "^4.4.0",
+    "export-to-csv": "^1.2.4",
     "express": "^4.18.2",
     "image-type": "^5.2.0",
     "sharp": "^0.33.2",
