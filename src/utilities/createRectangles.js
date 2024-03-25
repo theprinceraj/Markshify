@@ -32,9 +32,9 @@ export function createRectangles(type) {
     case "semester":
       return [
         {
-          left: 0,
-          top: 0,
-          width: 761,
+          left: 169,
+          top: 1,
+          width: 592,
           height: 63,
         },
       ];
@@ -65,7 +65,7 @@ export function createRectangles(type) {
           // Mother's Name
           left: 1701,
           top: 269,
-          width: 412,
+          width: 410,
           height: 69,
         },
         {
@@ -221,24 +221,24 @@ export function createRectangles(type) {
   }
 }
 
-// console.log("Begun!");
-// const worker = await createWorker("eng");
-// const rectangles = createRectangles("practical");
-// (async () => {
-//   const values = [];
-//   await worker.setParameters({
-//     tessedit_char_whitelist:
-//       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-//   });
-//   for (let i = 0; i < rectangles.length; i++) {
-//     let {
-//       data: { text },
-//     } = await worker.recognize("croppedImage.png", {
-//       rectangle: rectangles[i],
-//     });
-//     text = text.slice(0, -1);
-//     values.push(text);
-//   }
-//   console.log(values);
-//   await worker.terminate();
-// })();
+console.log("Begun!");
+const worker = await createWorker("eng");
+const rectangles = createRectangles("gpa");
+(async () => {
+  const values = [];
+  await worker.setParameters({
+    tessedit_char_whitelist:
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
+  });
+  for (let i = 0; i < rectangles.length; i++) {
+    let {
+      data: { text },
+    } = await worker.recognize("processedImage.png", {
+      rectangle: rectangles[i],
+    });
+    text = text.slice(0, -1);
+    values.push(text);
+  }
+  console.log(values);
+  await worker.terminate();
+})();
