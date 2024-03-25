@@ -31,16 +31,15 @@ async function addBorder(buffer, borderSize, borderColor) {
     const newWidth = metadata.width + borderSize * 2;
     const newHeight = metadata.height + borderSize * 2;
     const newImg = await sharp({
+      density: 72,
       create: {
         width: newWidth,
         height: newHeight,
         channels: 4,
         background: borderColor,
       },
-      density: metadata.density,
     }).png();
-    const newDensity = (await newImg.metadata()).density;
-    console.log(newDensity);
+
     const result = await newImg
       .composite([
         {
@@ -50,12 +49,19 @@ async function addBorder(buffer, borderSize, borderColor) {
         },
       ])
       .png()
+      .withMetadata({ density: 72 })
       .toBuffer();
 
+    const test = sharp(result);
+    const resultMetadata = await test.metadata();
+    const resultDensity = resultMetadata.density;
+    console.log(resultDensity);
+
+    fs.writeFileSync('processedImage.png', result)
     return result;
   } catch (err) {
     console.error(
-      "Some error occurred in the addBorder function. Error: \n" + err + "\n"
+      "Error occurred in the addBorder function. Error: \n" + err + "\n"
     );
   }
 }

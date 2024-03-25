@@ -223,7 +223,7 @@ export function createRectangles(type) {
 
 console.log("Begun!");
 const worker = await createWorker("eng");
-const rectangles = createRectangles("gpa");
+const rectangles = createRectangles("semester");
 (async () => {
   const values = [];
   await worker.setParameters({
