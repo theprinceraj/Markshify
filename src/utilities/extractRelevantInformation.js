@@ -5,7 +5,7 @@
  * @return {number} The integer equivalent of the Roman numeral.
  */
 export function convertRomanNumeralToInteger(semesterInRoman) {
-  console.log(semesterInRoman)
+  // console.log(semesterInRoman)
   switch (semesterInRoman) {
     case "I":
       return 1;

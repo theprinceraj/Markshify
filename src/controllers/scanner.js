@@ -24,19 +24,12 @@ export async function scan(req, res) {
       personalInfo;
     const gpa = await getJobDone(preProcessedImage, createRectangles("gpa"));
 
-    console.log(
-      registraionNumber,
-      currentSemesterNumber,
-      studentName,
-      fatherName,
-      motherName,
-      courseName,
-      gpa
-    );
+    const formatted = `${registraionNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName} | ${gpa}`;
+    console.log(formatted);
 
     res.json({
       ocrResponse: [registraionNumber, currentSemesterNumber],
-      formattedString: "",
+      formattedString: formatted,
     });
   } catch (error) {
     console.error("Error processing OCR:", error);
