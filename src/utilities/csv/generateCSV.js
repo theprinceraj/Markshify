@@ -7,7 +7,7 @@ import { writeFileSync } from "fs";
  * @param {Array} dataArray - The array of data objects to generate the CSV from.
  * @return {Buffer} The CSV buffer containing the generated CSV file.
  */
-function generateCSV(dataArray) {
+export function generateCSV(dataArray) {
   const csvConfig = mkConfig({
     columnHeaders: [
       "Registration Number",
@@ -27,3 +27,6 @@ function generateCSV(dataArray) {
   writeFileSync("out.csv", csvBuffer);
   return csvBuffer;
 }
+
+import { generateMockData } from "./mockDataGen.js";
+generateCSV(generateMockData(50));
