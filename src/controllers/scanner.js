@@ -6,21 +6,16 @@ import { writeFileSync } from "fs";
 
 export async function scan(req, res) {
   const base64versionImage = req.body.image;
-  if (!base64versionImage) {
+  if (!base64versionImage)
     return res
       .status(400)
       .json({ error: "Image data is missing in the request body" });
-  }
-  // const worker = await createWorker("eng");
-  // await worker.setParameters({
-  //   tessedit_char_whitelist:
-  //     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-  // });
+
   const preProcessedImage = await preProcessImage(base64versionImage);
   try {
-    const currentSemesterNumber = convertRomanNumeralToInteger((
-      await getJobDone(preProcessedImage, createRectangles("semester"))
-    )[0]);
+    const currentSemesterNumber = convertRomanNumeralToInteger(
+      (await getJobDone(preProcessedImage, createRectangles("semester")))[0]
+    );
     const personalInfo = await getJobDone(
       preProcessedImage,
       createRectangles("personal-info")
@@ -29,7 +24,15 @@ export async function scan(req, res) {
       personalInfo;
     const gpa = await getJobDone(preProcessedImage, createRectangles("gpa"));
 
-    console.log(registraionNumber, currentSemesterNumber, studentName, fatherName, motherName, courseName, gpa);
+    console.log(
+      registraionNumber,
+      currentSemesterNumber,
+      studentName,
+      fatherName,
+      motherName,
+      courseName,
+      gpa
+    );
 
     res.json({
       ocrResponse: [registraionNumber, currentSemesterNumber],
