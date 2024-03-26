@@ -1,4 +1,6 @@
 import { createWorker } from "tesseract.js";
+
+const worker = await createWorker("eng");
 /**
  * Asynchronously processes an image using Tesseract OCR to extract text from specified rectangles.
  *
@@ -7,18 +9,20 @@ import { createWorker } from "tesseract.js";
  * @return {Promise<string>} The extracted text from the specified rectangles.
  */
 export async function getJobDone(img, rectanglesArr) {
-  const worker = await createWorker("eng");
   await worker.setParameters({
     tessedit_char_whitelist:
       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
   });
-
-  const {
-    data: { text },
-  } = await worker.recognize(img, {
-    rectangle: rectanglesArr,
-  });
-  text = text.slice(0, -1);
-  await worker.terminate();
-  return text;
+  let result = [];
+  let rectArrLen = rectanglesArr.length;
+  for (let i = 0; i < rectArrLen; i++) {
+    let {
+      data: { text },
+    } = await worker.recognize(img, {
+      rectangle: rectanglesArr[i],
+    });
+    text = text.slice(0, -1);
+    result.push(text);
+  }
+  return result;
 }
