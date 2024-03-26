@@ -79,60 +79,11 @@ export function createRectangles(type) {
     case "gpa":
       return [
         {
-          // Semester 1 GPA
-          left: 227,
-          top: 1731,
-          width: 202,
-          height: 63,
-        },
-        {
-          // Semester 2 GPA
-          left: 437,
-          top: 1731,
-          width: 202,
-          height: 63,
-        },
-        {
-          // Semester 3 GPA
-          left: 650,
-          top: 1731,
-          width: 180,
-          height: 63,
-        },
-        {
-          // Semester 4 GPA
-          left: 830,
-          top: 1731,
-          width: 175,
-          height: 63,
-        },
-        {
-          // Semester 5 GPA
-          left: 1010,
-          top: 1731,
-          width: 175,
-          height: 63,
-        },
-        {
-          // Semester 6 GPA
-          left: 1184,
-          top: 1731,
-          width: 175,
-          height: 63,
-        },
-        {
-          // Semester 7 GPA
-          left: 1363,
-          top: 1731,
-          width: 175,
-          height: 63,
-        },
-        {
-          // Semester 8 GPA
-          left: 1540,
-          top: 1731,
-          width: 175,
-          height: 63,
+          // Semester GPA
+          left: 2027,
+          top: 1542,
+          width: 78,
+          height: 61,
         },
         {
           // Current GPA
@@ -223,7 +174,7 @@ export function createRectangles(type) {
 
 // console.log("Begun!");
 // const worker = await createWorker("eng");
-// const rectangles = createRectangles("practical");
+// const rectangles = createRectangles("gpa");
 // (async () => {
 //   const values = [];
 //   await worker.setParameters({
