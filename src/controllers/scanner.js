@@ -1,8 +1,8 @@
-import { createWorker } from "tesseract.js";
 import { convertRomanNumeralToInteger } from "../utilities/extractRelevantInformation.js";
-import { createRectangles } from "../utilities/createRectangles.js";
-import { preProcessImage } from "../utilities/preProcessImage.js";
-import fs, { writeFileSync } from "fs";
+import { createRectangles } from "../utilities/tesseract/createRectangles.js";
+import { preProcessImage } from "../utilities/sharp/preProcessImage.js";
+import { writeFileSync } from "fs";
+
 export async function scan(req, res) {
   const base64versionImage = req.body.image;
   if (!base64versionImage) {
@@ -45,19 +45,3 @@ export async function scan(req, res) {
   }
 }
 
-async function getJobDone(img, rectanglesArr) {
-  const worker = await createWorker("eng");
-  await worker.setParameters({
-    tessedit_char_whitelist:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
-  });
-
-  const {
-    data: { text },
-  } = await worker.recognize(img, {
-    rectangle: rectanglesArr,
-  });
-  text = text.slice(0, -1);
-  await worker.terminate();
-  return text;
-}
