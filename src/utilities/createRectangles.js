@@ -174,7 +174,7 @@ export function createRectangles(type) {
 
 // console.log("Begun!");
 // const worker = await createWorker("eng");
-// const rectangles = createRectangles("practical");
+// const rectangles = createRectangles("gpa");
 // (async () => {
 //   const values = [];
 //   await worker.setParameters({

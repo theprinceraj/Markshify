@@ -2,7 +2,7 @@ import { createWorker } from "tesseract.js";
 import { convertRomanNumeralToInteger } from "../utilities/extractRelevantInformation.js";
 import { createRectangles } from "../utilities/createRectangles.js";
 import { preProcessImage } from "../utilities/preProcessImage.js";
-import fs from "fs";
+import fs, { writeFileSync } from "fs";
 export async function scan(req, res) {
   const base64versionImage = req.body.image;
   if (!base64versionImage) {
