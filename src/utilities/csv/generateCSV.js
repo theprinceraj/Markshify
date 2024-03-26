@@ -1,6 +1,12 @@
 import { mkConfig, generateCsv, asString } from "export-to-csv";
 import { writeFileSync } from "fs";
 
+/**
+ * Generates a CSV file from the given data array and returns the CSV buffer.
+ *
+ * @param {Array} dataArray - The array of data objects to generate the CSV from.
+ * @return {Buffer} The CSV buffer containing the generated CSV file.
+ */
 function generateCSV(dataArray) {
   const csvConfig = mkConfig({
     columnHeaders: [
@@ -16,8 +22,8 @@ function generateCSV(dataArray) {
       "Total Marks",
     ],
   });
-  const csvYo = generateCsv(csvConfig)(dataArray);
-  const csvBuffer = Buffer.from(asString(csvYo));
+  const csvStream = generateCsv(csvConfig)(dataArray);
+  const csvBuffer = Buffer.from(asString(csvStream));
   writeFileSync("out.csv", csvBuffer);
   return csvBuffer;
 }
