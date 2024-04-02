@@ -7,7 +7,6 @@ const firebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
-  databaseUrl: process.env.FIREBASE_REALTIME_DB_URL,
 };
 
 export const app = initializeApp(firebaseConfig);
