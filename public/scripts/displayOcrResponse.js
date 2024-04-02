@@ -11,7 +11,6 @@ function displayOcrResponse(ocrString, formattedString) {
     );
     return;
   }
-  console.log(ocrString);
   const outputDiv = document.getElementById("output");
   outputDiv.innerText = formattedString;
 }

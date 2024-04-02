@@ -41,7 +41,7 @@ export async function scan(req, res) {
     ] = await getJobDone(preProcessedImage, createRectangles("theory"));
 
     const formatted = `${registrationNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName} | ${sgpa} | ${cgpa} | ${theory1code} | ${theory1marks} | ${theory2code} | ${theory2marks} | ${theory3code} | ${theory3marks} | ${theory4code} | ${theory4marks} | ${theory5code} | ${theory5marks}`;
-    console.log(formatted);
+    // console.log(formatted);
 
     await uploadStudentData({
       regNo: registrationNumber,
