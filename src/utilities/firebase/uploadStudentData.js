@@ -36,17 +36,17 @@ export async function uploadStudentData({
   }
 }
 
-await uploadStudentData({
-  regNo: 17102110031,
-  studentName: "Student1",
-  fatherName: "Father1",
-  motherName: "Mother1",
-  courseName: "B.Tech.",
-  semester: 1,
-  subCode: "SUB1",
-  subName: "Subject1",
-  totalMarks: 100,
-  isPractical: true,
-  sgpa: 9.0,
-  cgpa: 9.0,
-});
+// await uploadStudentData({
+//   regNo: 17102110031,
+//   studentName: "Student1",
+//   fatherName: "Father1",
+//   motherName: "Mother1",
+//   courseName: "B.Tech.",
+//   semester: 1,
+//   subCode: "SUB1",
+//   subName: "Subject1",
+//   totalMarks: 100,
+//   isPractical: true,
+//   sgpa: 9.0,
+//   cgpa: 9.0,
+// });

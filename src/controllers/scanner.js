@@ -2,7 +2,7 @@ import { convertRomanNumeralToInteger } from "../utilities/extractRelevantInform
 import { createRectangles } from "../utilities/tesseract/createRectangles.js";
 import { getJobDone } from "../utilities/tesseract/getJobDone.js";
 import { preProcessImage } from "../utilities/sharp/preProcessImage.js";
-import { writeFileSync } from "fs";
+import { uploadStudentData } from "../utilities/firebase/uploadStudentData.js";
 
 export async function scan(req, res) {
   const base64versionImage = req.body.image;
@@ -16,19 +16,49 @@ export async function scan(req, res) {
     const currentSemesterNumber = convertRomanNumeralToInteger(
       (await getJobDone(preProcessedImage, createRectangles("semester")))[0]
     );
-    const personalInfo = await getJobDone(
+    const [
+      registrationNumber,
+      studentName,
+      fatherName,
+      motherName,
+      courseName,
+    ] = await getJobDone(preProcessedImage, createRectangles("personal-info"));
+    const [sgpa, cgpa] = await getJobDone(
       preProcessedImage,
-      createRectangles("personal-info")
+      createRectangles("gpa")
     );
-    const [registraionNumber, studentName, fatherName, motherName, courseName] =
-      personalInfo;
-    const gpa = await getJobDone(preProcessedImage, createRectangles("gpa"));
+    const [
+      theory1code,
+      theory1marks,
+      theory2code,
+      theory2marks,
+      theory3code,
+      theory3marks,
+      theory4code,
+      theory4marks,
+      theory5code,
+      theory5marks,
+    ] = getJobDone(preProcessedImage, createRectangles("theory"));
 
-    const formatted = `${registraionNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName} | ${gpa}`;
+    const formatted = `${registrationNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName}`;
     console.log(formatted);
 
+    await uploadStudentData({
+      regNo: registrationNumber,
+      studentName: studentName,
+      fatherName: fatherName,
+      motherName: motherName,
+      courseName: courseName,
+      semester: currentSemesterNumber,
+      subCode: theory1code,
+      totalMarks: theory1marks,
+      isPractical: true,
+      sgpa: sgpa,
+      cgpa: cgpa,
+    });
+
     res.json({
-      ocrResponse: [registraionNumber, currentSemesterNumber],
+      ocrResponse: [registrationNumber, currentSemesterNumber],
       formattedString: formatted,
     });
   } catch (error) {
