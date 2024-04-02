@@ -9,12 +9,27 @@ export async function uploadStudentData({
   courseName,
   semester,
   subCode,
-  subName = "Test",
   totalMarks,
   isPractical,
   sgpa,
   cgpa,
 }) {
+  if (
+    !regNo ||
+    !studentName ||
+    !fatherName ||
+    !motherName ||
+    !courseName ||
+    !semester ||
+    !subCode ||
+    !totalMarks ||
+    !isPractical ||
+    !sgpa ||
+    !cgpa
+  )
+    throw new Error(
+      "One of the variables passed to uploadStudentData function is undefined"
+    );
   try {
     const studentRef = collection(db, "students");
     await addDoc(studentRef, {
