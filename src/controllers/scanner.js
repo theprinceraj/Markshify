@@ -38,9 +38,9 @@ export async function scan(req, res) {
       theory4marks,
       theory5code,
       theory5marks,
-    ] = getJobDone(preProcessedImage, createRectangles("theory"));
+    ] = await getJobDone(preProcessedImage, createRectangles("theory"));
 
-    const formatted = `${registrationNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName}`;
+    const formatted = `${registrationNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName} | ${sgpa} | ${cgpa} | ${theory1code} | ${theory1marks} | ${theory2code} | ${theory2marks} | ${theory3code} | ${theory3marks} | ${theory4code} | ${theory4marks} | ${theory5code} | ${theory5marks}`;
     console.log(formatted);
 
     await uploadStudentData({
