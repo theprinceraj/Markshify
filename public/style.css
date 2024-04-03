@@ -108,6 +108,7 @@
 .featuresContainer {
     flex: 0 0 auto;
     color: var(--dl-color-custom-neutral-light);
+}
 
 nav {
     width: 100%;
