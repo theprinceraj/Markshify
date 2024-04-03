@@ -5,21 +5,27 @@
  * @return {type} the OCR response if the API request is successful, otherwise null
  */
 async function sendApiReq(imageInput) {
-    const base64version = await convertToBase64(imageInput);
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ image: base64version }),
-    };
-    const response = await fetch("/api/scan", requestOptions);
+  const base64version = await convertToBase64(imageInput);
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({ image: base64version }),
+  };
+  const response = await fetch("/api/scan", requestOptions);
 
-    if (response.ok) {
-      const data = await response.json();
-      const { ocrResponse, formattedString } = data;
-      return [ocrResponse, formattedString];
-    } else {
-      console.error("Error:", response.statusText);
-    }
+  if (response.ok) {
+    const data = await response.json();
+    const { ocrResponse, formattedString } = data;
+    return [ocrResponse, formattedString];
+  } else {
+    alert(
+      "An error occured. Please recheck that you have scanned the correct image and that it is absolutely clear."
+    );
+    console.error(
+      "Error Occurred Within sendApiReq function:",
+      response.statusText
+    );
+  }
 }
 
 /**

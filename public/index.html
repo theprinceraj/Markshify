@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <title>Markshify</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -21,48 +23,358 @@
       href="./assets/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./assets/favicon/site.webmanifest" />
-    <title>Smart Sheet Generator</title>
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Overpass"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
   </head>
   <body>
-    <nav>
-      <div>
-        <h3>Smart Sheet Generator</h3>
-      </div>
-      <a href="https://github.com/theprinceraj/Smart-Sheet-Generator"
-        ><i class="bx bxl-github"></i
-      ></a>
-    </nav>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
 
-    <section>
-      <div class="section-heading">
-        <h1>Scan Marksheets With Ease</h1>
-        <h6>Made By Team Dhruv</h6>
+      <div class="home-container">
+        <div class="home-header">
+          <header
+            data-thq="thq-navbar"
+            class="navbarContainer home-navbar-interactive"
+          >
+            <span class="logo">MARKSHIFY</span>
+            <div data-thq="thq-navbar-nav" class="home-desktop-menu">
+              <nav class="home-links">
+                <a href="#faq"><span class="home-nav42 bodySmall">FAQ</span></a>
+              </nav>
+              <div class="home-buttons">
+                <button class="buttonFilled">
+                  <a
+                    href="https://github.com/theprinceraj/Smart-Sheet-Generator"
+                    >Github</a
+                  >
+                </button>
+              </div>
+            </div>
+            <div data-thq="thq-burger-menu" class="home-burger-menu">
+              <svg viewBox="0 0 1024 1024" class="home-icon socialIcons">
+                <path
+                  d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+              </svg>
+            </div>
+            <div
+              data-thq="thq-mobile-menu"
+              class="home-mobile-menu1 mobileMenu"
+            >
+              <div class="home-nav">
+                <div class="home-top">
+                  <span class="logo">MARKSHIFY</span>
+                  <div data-thq="thq-close-menu" class="home-close-menu">
+                    <svg
+                      viewBox="0 0 1024 1024"
+                      class="home-icon02 socialIcons"
+                    >
+                      <path
+                        d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <nav class="home-links1">
+                  <a href="#faq"
+                    ><span class="home-nav421 bodySmall">FAQ</span></a
+                  >
+                </nav>
+                <div class="home-buttons1">
+                  <button class="buttonFilled">
+                    <a
+                      href="https://github.com/theprinceraj/Smart-Sheet-Generator"
+                      >Github</a
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container1">
+              <h1 class="home-hero-heading heading1">
+                Convert Your Semester Marksheets to CSV Files
+              </h1>
+              <span class="home-hero-sub-heading bodyLarge">
+                <span>
+                  <span>
+                    <span>Effortlessly digitize your academic records</span>
+                    <span></span>
+                  </span>
+                  <span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+                <span>
+                  <span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+              </span>
+              <form class="home-btn-group" id="input-form">
+                <label for="marksheetInputField" class="buttonFilled"
+                  >Choose Image</label
+                >
+                <input
+                  type="file"
+                  name="marksheetInput"
+                  id="marksheetInputField"
+                  class="hidden-input"
+                  accept="image/*"
+                  required
+                />
+                <input
+                  type="text"
+                  id="file-name-field"
+                  name="fileName"
+                  disabled
+                />
+                <button class="buttonFilled" id="scan-btn">
+                  <span>
+                    <span>Upload Marksheet</span>
+                    <br />
+                  </span>
+                </button>
+                <button class="buttonFilled">Get CSV</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="home-faq" id="faq">
+          <div class="faqContainer">
+            <div class="home-faq1">
+              <div class="home-container2">
+                <span class="overline">
+                  <span>FAQ</span>
+                  <br />
+                </span>
+                <h2 class="home-text23 heading2">Common questions</h2>
+                <span class="home-text24 bodyLarge">
+                  <span>
+                    Here are some of the most common questions that we get.
+                  </span>
+                  <br />
+                </span>
+              </div>
+              <div class="home-container3">
+                <div class="question1-container">
+                  <span class="question1-text heading3">
+                    <span>
+                      How do I convert my semester marksheets to CSV files using
+                      your service?
+                    </span>
+                  </span>
+                  <span class="bodySmall">
+                    <span>
+                      You can easily convert your semester marksheets to CSV
+                      files by uploading the files on our website and following
+                      the simple instructions provided.
+                    </span>
+                  </span>
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3">
+                    <span>Is my data secure when using your service?</span>
+                  </span>
+                  <span class="bodySmall">
+                    <span>
+                      Yes, we take data security seriously. Your uploaded
+                      marksheets are encrypted and only used for the purpose of
+                      converting them to CSV files.
+                    </span>
+                  </span>
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3">
+                    <span>
+                      Can I convert marksheets from any educational institution?
+                    </span>
+                  </span>
+                  <span class="bodySmall">
+                    <span>
+                      Yes, our service supports marksheets from various
+                      educational institutions. You can upload your marksheets
+                      regardless of the institution.
+                    </span>
+                  </span>
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3">
+                    <span>
+                      How long does it take to convert marksheets to CSV files?
+                    </span>
+                  </span>
+                  <span class="bodySmall">
+                    <span>
+                      The conversion process is usually quick, and you will
+                      receive the converted CSV files within a short period of
+                      time after uploading your marksheets.
+                    </span>
+                  </span>
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3">
+                    <span>
+                      What file formats are supported for marksheets conversion?
+                    </span>
+                  </span>
+                  <span class="bodySmall">
+                    <span>
+                      We support a wide range of file formats for marksheets
+                      conversion, including PDF, image files, and more. You can
+                      upload your marksheets in any of these formats.
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-banner">
+          <div class="bannerContainer home-banner1">
+            <h1 class="home-banner-heading heading2">
+              Simplify Your Academic Data Management
+            </h1>
+            <span class="home-banner-sub-heading bodySmall">
+              <span>
+                <span>
+                  <span>
+                    Our platform offers a seamless solution to convert your
+                    semester marksheets into CSV files, making it easier to
+                    organize and analyze your academic performance. Say goodbye
+                    to manual data entry and hello to efficiency.
+                  </span>
+                  <span></span>
+                </span>
+                <span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </span>
+              <span>
+                <span>
+                  <span></span>
+                  <span></span>
+                </span>
+                <span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </span>
+            </span>
+            <button class="buttonFilled">Lets Go!</button>
+          </div>
+        </div>
+        <div class="home-footer">
+          <footer class="footerContainer home-footer1">
+            <div class="home-container4"></div>
+            <span class="logo">MARKSHIFY</span>
+            <div class="home-separator"></div>
+            <div class="home-container5">
+              <span class="bodySmall home-text41">
+                © 2024 Team Dhruv, All Rights Reserved.
+              </span>
+              <div class="home-icon-group1">
+                <a href="https://github.com/theprinceraj/Smart-Sheet-Generator"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    style="fill: rgba(255, 255, 255, 1)"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+          </footer>
+        </div>
       </div>
-
-      <div class="section-content">
-        <form id="input-form">
-          <label for="marksheetInputField">Choose Image</label>
-          <input
-            type="file"
-            name="marksheetInput"
-            id="marksheetInputField"
-            class="hidden-input"
-            accept="image/*"
-            required
-          />
-          <input type="text" name="fileName" id="file-name-field" disabled />
-          <button id="scan-btn">Scan Marksheet</button>
-        </form>
-      </div>
-    </section>
-    
-    <section id="output"></section>
-
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
     <script src="scripts/displayOcrResponse.js"></script>
     <script src="scripts/sendApiReq.js"></script>
     <script src="scripts/formFunctionality.js"></script>
