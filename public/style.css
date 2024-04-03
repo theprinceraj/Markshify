@@ -387,3 +387,10 @@
 .hidden-input {
     display: none;
 }
+
+#file-name-field {
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    height: 2rem;
+}
