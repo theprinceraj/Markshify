@@ -1,4 +1,8 @@
 [[redirects]]
-from = "/*"
-to = "public/index.html"
-status = 200
+  from = "/*"
+  to = "public/index.html"
+  status = 200
+
+[build]
+  publish = "public"
+  command = "echo 'No build command, just publish the public folder.'"
