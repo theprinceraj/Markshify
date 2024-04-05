@@ -2,6 +2,7 @@
 import Tesseract from "tesseract.js";
 
 const worker = await Tesseract.createWorker("eng");
+
 /**
  * Asynchronously processes an image using Tesseract OCR to extract text from specified rectangles.
  *
