@@ -1,7 +1,13 @@
 // import { createWorker } from "tesseract.js";
 import Tesseract from "tesseract.js";
 
-const worker = await Tesseract.createWorker("eng");
+const worker = await Tesseract.createWorker("eng", null, {
+  workerPath:
+    "./src/utilities/tesseract/tesseract/worker.min.js",
+  langPath: "./src/utilities/tesseract/tesseract/eng.traineddata.gz",
+  corePath:
+    "./src/utilities/tesseract/tesseract/tesseract-core.wasm.js",
+});
 
 /**
  * Asynchronously processes an image using Tesseract OCR to extract text from specified rectangles.
