@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
@@ -14,7 +15,7 @@ app.get("/api", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Made by Team Dhruv❤️✨!");
+  console.log("Made by Team Dhruv✨!");
 });
 
 export default app;

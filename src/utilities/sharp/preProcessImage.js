@@ -21,12 +21,10 @@ export async function preProcessImage(base64Image) {
   return preProcessedImage;
 }
 
-// const file = await fs.readFileSync("./croppedImage.png");
 async function addBorder(buffer, borderSize, borderColor) {
   try {
     const img = sharp(buffer);
     const metadata = await img.metadata();
-    // console.log(metadata.density);
 
     const newWidth = metadata.width + borderSize * 2;
     const newHeight = metadata.height + borderSize * 2;
@@ -52,11 +50,6 @@ async function addBorder(buffer, borderSize, borderColor) {
       .withMetadata({ density: 72 })
       .toBuffer();
 
-    // const test = sharp(result);
-    // const resultMetadata = await test.metadata();
-    // const resultDensity = resultMetadata.density;
-    // console.log(resultDensity);
-
     fs.writeFileSync('processedImage.png', result)
     return result;
   } catch (err) {
@@ -65,4 +58,3 @@ async function addBorder(buffer, borderSize, borderColor) {
     );
   }
 }
-// addBorder(file, 10, { r: 255, g: 0, b: 0, alpha: 1 });

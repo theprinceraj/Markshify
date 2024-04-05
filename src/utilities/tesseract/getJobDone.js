@@ -1,6 +1,7 @@
-import { createWorker } from "tesseract.js";
+// import { createWorker } from "tesseract.js";
+import Tesseract from "tesseract.js";
 
-const worker = await createWorker("eng");
+const worker = await Tesseract.createWorker("eng");
 /**
  * Asynchronously processes an image using Tesseract OCR to extract text from specified rectangles.
  *
