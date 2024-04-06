@@ -1,4 +1,4 @@
 {
-    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
-  }
-  
+  "files": ["./src/utilities/tesseract/tesseract.js-core/tesseract-core-simd.wasm"],
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+}
