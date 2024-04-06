@@ -6,11 +6,9 @@
   "dependencies": {
     "export-to-csv": "^1.2.4",
     "express": "^4.18.2",
-    "firebase": "^10.10.0",
+    "firebase": "^10.6.0",
     "image-type": "^5.2.0",
-    "sharp": "^0.33.2",
-    "tesseract.js": "^5.0.5",
-    "tesseract.js-core": "^5.1.0"
+    "sharp": "^0.33.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

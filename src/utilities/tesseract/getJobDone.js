@@ -1,10 +1,6 @@
-// import { createWorker } from "tesseract.js";
-import Tesseract from "tesseract.js";
+import { createWorker } from './tesseract.js';
 
-const worker = await Tesseract.createWorker("eng", null, {
-  corePath:
-    "./src/utilities/tesseract/tesseract/tesseract-core.wasm.js",
-});
+const worker = await createWorker();
 
 /**
  * Asynchronously processes an image using Tesseract OCR to extract text from specified rectangles.
@@ -15,8 +11,7 @@ const worker = await Tesseract.createWorker("eng", null, {
  */
 export async function getJobDone(img, rectanglesArr) {
   await worker.setParameters({
-    tessedit_char_whitelist:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ",
+    tessedit_char_whitelist: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-:. ',
   });
   let result = [];
   let rectArrLen = rectanglesArr.length;

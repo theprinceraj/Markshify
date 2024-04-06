@@ -132,3 +132,6 @@ dist
 
 # 
 public/history/output.txt
+
+# Allow the dist directory in tesseract.js
+!src/utilities/tesseract/tesseract.js/dist/
