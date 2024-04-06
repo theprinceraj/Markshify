@@ -11,5 +11,6 @@ function displayOcrResponse(ocrString, formattedString) {
     );
     return;
   }
-  console.log(ocrString,'\n',formattedString);
+  alert(formattedString);
+  console.log(ocrString, "\n", formattedString);
 }
