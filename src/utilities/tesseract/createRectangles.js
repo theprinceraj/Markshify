@@ -1,5 +1,3 @@
-import { createWorker } from "tesseract.js";
-
 /**
  * Generates an array of rectangles based on the type provided.
  *
