@@ -1,4 +1,10 @@
 {
-    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
+    "routes": [
+      {
+        "src": "/wasm/(.*)",
+        "dest": "/node_modules/tesseract.js-core/$1"
+      }
+    ]
   }
   
