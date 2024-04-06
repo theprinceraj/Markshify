@@ -1,4 +1,4 @@
-import { createWorker } from './tesseract.js';
+import { createWorker } from './tesseract.js/src/index';
 
 const worker = await createWorker();
 
