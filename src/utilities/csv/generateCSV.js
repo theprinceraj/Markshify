@@ -1,5 +1,4 @@
 import { mkConfig, generateCsv, asString } from "export-to-csv";
-import { writeFileSync } from "fs";
 
 /**
  * Generates a CSV file from the given data array and returns the CSV buffer.
@@ -21,12 +20,13 @@ export function generateCSV(dataArray) {
       "Subject Code",
       "Total Marks",
     ],
+    title: "Master Academic Record",
   });
+  console.log(dataArray);
+  if (!dataArray) {
+    throw new Error("dataArray passed to generateCSV() function is undefined.");
+  }
   const csvStream = generateCsv(csvConfig)(dataArray);
   const csvBuffer = Buffer.from(asString(csvStream));
-  writeFileSync("out.csv", csvBuffer);
   return csvBuffer;
 }
-
-import { generateMockData } from "./mockDataGen.js";
-generateCSV(generateMockData(50));

@@ -33,17 +33,17 @@ export async function uploadStudentData({
   try {
     const studentRef = collection(db, "students");
     await addDoc(studentRef, {
-      registrationNumber: parseInt(regNo),
-      name: studentName,
-      fatherName: fatherName,
-      motherName: motherName,
-      courseName: courseName,
-      semester: parseInt(semester),
-      subCode: parseInt(subCode),
-      totalMarks: parseInt(totalMarks),
+      "Registration Number": parseInt(regNo),
+      Name: studentName,
+      "Father's Name": fatherName,
+      "Mother's Name": motherName,
+      "Course Name": courseName,
+      Semester: parseInt(semester),
+      "Subject Code": parseInt(subCode),
+      "Total Marks": parseInt(totalMarks),
       isPractical: isPractical,
-      sgpa: parseFloat(sgpa),
-      cgpa: parseFloat(cgpa),
+      SGPA: parseFloat(sgpa),
+      "Curr. GPA": parseFloat(cgpa),
     });
   } catch (err) {
     console.log("Error occured inside uploadStudentData function:\n", err);
