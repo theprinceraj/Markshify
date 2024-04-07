@@ -27,6 +27,8 @@ export async function scan(req, res) {
       preProcessedImage,
       createRectangles("gpa")
     );
+
+    let formatted;
     const [
       theory1code,
       theory1marks,
@@ -39,22 +41,99 @@ export async function scan(req, res) {
       theory5code,
       theory5marks,
     ] = await getJobDone(preProcessedImage, createRectangles("theory"));
+    const [
+      practical1code,
+      practical1marks,
+      practical2code,
+      practical2marks,
+      practical3code,
+      practical3marks,
+      practical4code,
+      practical4marks,
+      practical5code,
+      practical5marks,
+    ] = await getJobDone(preProcessedImage, createRectangles("practical"));
 
-    const formatted = `${registrationNumber} | ${currentSemesterNumber} | ${studentName} |${fatherName} | ${motherName} | ${courseName} | ${sgpa} | ${cgpa} | ${theory1code} | ${theory1marks} | ${theory2code} | ${theory2marks} | ${theory3code} | ${theory3marks} | ${theory4code} | ${theory4marks} | ${theory5code} | ${theory5marks}`;
-    // console.log(formatted);
+    formatted = `${registrationNumber} | ${studentName} |${fatherName} | ${motherName} \n ${currentSemesterNumber} | ${courseName} | ${sgpa} | ${cgpa} \n ${theory1code} | ${theory1marks} | ${theory2code} | ${theory2marks} | ${theory3code} | ${theory3marks} | ${theory4code} | ${theory4marks} | ${theory5code} | ${theory5marks} \n ${practical1code} | ${practical1marks} | ${practical2code} | ${practical2marks} | ${practical3code} | ${practical3marks} | ${practical4code} | ${practical4marks} | ${practical5code} | ${practical5marks} `;
+    const theory = [
+      {
+        code: theory1code,
+        marks: theory1marks,
+      },
+      {
+        code: theory2code,
+        marks: theory2marks,
+      },
+      {
+        code: theory3code,
+        marks: theory3marks,
+      },
+      {
+        code: theory4code,
+        marks: theory4marks,
+      },
+      {
+        code: theory5code,
+        marks: theory5marks,
+      },
+    ];
 
-    await uploadStudentData({
-      regNo: registrationNumber,
-      studentName: studentName,
-      fatherName: fatherName,
-      motherName: motherName,
-      courseName: courseName,
-      semester: currentSemesterNumber,
-      subCode: theory1code,
-      totalMarks: theory1marks,
-      isPractical: true,
-      sgpa: sgpa,
-      cgpa: cgpa,
+    const practical = [
+      {
+        code: practical1code,
+        marks: practical1marks,
+      },
+      {
+        code: practical2code,
+        marks: practical2marks,
+      },
+      {
+        code: practical3code,
+        marks: practical3marks,
+      },
+      {
+        code: practical4code,
+        marks: practical4marks,
+      },
+      {
+        code: practical5code,
+        marks: practical5marks,
+      },
+    ];
+
+    theory.forEach(({ code, marks }) => {
+      if (code && marks) {
+        uploadStudentData({
+          regNo: registrationNumber,
+          studentName: studentName,
+          fatherName: fatherName,
+          motherName: motherName,
+          courseName: courseName,
+          semester: currentSemesterNumber,
+          subCode: code,
+          totalMarks: marks,
+          isPractical: false,
+          sgpa: sgpa,
+          cgpa: cgpa,
+        });
+      }
+    });
+    practical.forEach(({ code, marks }) => {
+      if (code && marks) {
+        uploadStudentData({
+          regNo: registrationNumber,
+          studentName: studentName,
+          fatherName: fatherName,
+          motherName: motherName,
+          courseName: courseName,
+          semester: currentSemesterNumber,
+          subCode: code,
+          totalMarks: marks,
+          isPractical: true,
+          sgpa: sgpa,
+          cgpa: cgpa,
+        });
+      }
     });
 
     res.json({

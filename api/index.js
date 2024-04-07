@@ -10,6 +10,9 @@ app.use(express.json({ limit: "10mb" }));
 import { scan } from "../src/controllers/scanner.js";
 app.use("/api/scan", scan);
 
+import { generate } from "../src/controllers/generator.js";
+app.use("/api/generate", generate);
+
 app.get("/api", (req, res) => {
   res.send("API is running.");
 });
