@@ -23,13 +23,14 @@ export async function uploadStudentData({
     !semester ||
     !subCode ||
     !totalMarks ||
-    !isPractical ||
+    isPractical == (undefined || null) ||
     !sgpa ||
     !cgpa
-  )
+  ) {
     throw new Error(
       "One of the variables passed to uploadStudentData function is undefined"
     );
+  }
   try {
     const studentRef = collection(db, "students");
     await addDoc(studentRef, {
