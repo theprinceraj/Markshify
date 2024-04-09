@@ -1,12 +1,18 @@
 import sharp from "sharp";
-import fs from "fs";
-
+// import { writeFileSync } from "fs";
 export async function preProcessImage(base64Image) {
   const imageBuffer = Buffer.from(
     base64Image.split(";base64,").pop(),
     "base64"
   );
-  let response = await sharp(imageBuffer)
+  let sharpInstance = sharp(imageBuffer);
+  const metadata = await sharpInstance.metadata();
+  if (metadata.width < 2113 + 181 || metadata.height < 1807 + 805) {
+    throw new Error(
+      "Image dimensions are insufficient for extraction. Please provide an image with a width of at least 2294 and a height of at least 2612."
+    );
+  }
+  let response = await sharpInstance
     .greyscale()
     .extract({ width: 2113, height: 1807, top: 805, left: 181 })
     .png()
@@ -17,7 +23,7 @@ export async function preProcessImage(base64Image) {
     b: 0,
     alpha: 1,
   });
-  fs.writeFileSync("processedImage.png", preProcessedImage);
+  // writeFileSync("./lol.jpg", preProcessedImage);
   return preProcessedImage;
 }
 
@@ -28,7 +34,7 @@ async function addBorder(buffer, borderSize, borderColor) {
 
     const newWidth = metadata.width + borderSize * 2;
     const newHeight = metadata.height + borderSize * 2;
-    const newImg = await sharp({
+    const newImg = sharp({
       density: 72,
       create: {
         width: newWidth,
@@ -50,7 +56,6 @@ async function addBorder(buffer, borderSize, borderColor) {
       .withMetadata({ density: 72 })
       .toBuffer();
 
-    fs.writeFileSync('processedImage.png', result)
     return result;
   } catch (err) {
     console.error(

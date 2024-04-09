@@ -18,13 +18,11 @@ async function sendApiReq(imageInput) {
     const { ocrResponse, formattedString } = data;
     return [ocrResponse, formattedString];
   } else {
-    alert(
-      "An error occured. Please recheck that you have scanned the correct image and that it is absolutely clear."
-    );
     console.error(
       "Error Occurred Within sendApiReq function:",
       response.statusText
     );
+    return;
   }
 }
 

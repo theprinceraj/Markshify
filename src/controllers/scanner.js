@@ -141,7 +141,7 @@ export async function scan(req, res) {
       formattedString: formatted,
     });
   } catch (error) {
-    console.error("Error processing OCR:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error processing OCR:", error.message);
+    res.json({ ocrResponse: "Error", formattedString: error.message });
   }
 }
