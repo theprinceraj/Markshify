@@ -11,8 +11,8 @@ export async function scan(req, res) {
       .status(400)
       .json({ error: "Image data is missing in the request body" });
 
-  const preProcessedImage = await preProcessImage(base64versionImage);
   try {
+    const preProcessedImage = await preProcessImage(base64versionImage);
     const currentSemesterNumber = convertRomanNumeralToInteger(
       (await getJobDone(preProcessedImage, createRectangles("semester")))[0]
     );
