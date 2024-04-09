@@ -28,7 +28,7 @@ export async function uploadStudentData({
     !cgpa
   ) {
     throw new Error(
-      "One of the variables passed to uploadStudentData function is undefined"
+      "One of the variables passed to uploadStudentData function is undefined or falsy"
     );
   }
   try {
