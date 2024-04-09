@@ -40,7 +40,7 @@ export async function uploadStudentData({
       "Mother's Name": motherName,
       "Course Name": courseName,
       Semester: parseInt(semester),
-      "Subject Code": parseInt(subCode),
+      "Subject Code": subCode,
       "Total Marks": parseInt(totalMarks),
       isPractical: isPractical,
       SGPA: parseFloat(sgpa),
