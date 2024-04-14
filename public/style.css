@@ -397,3 +397,27 @@ nav {
     border-radius: 8px;
     height: 2rem;
 }
+
+.fakeButtonFilled {
+    color: var(--dl-color-custom-neutral-light);
+    font-family: Overpass;
+    font-weight: bold;
+    padding-top: calc(var(--dl-space-space-halfunit)/2);
+    padding-left: calc(var(--dl-space-space-oneandhalfunits)/2);
+    border-radius: 8px;
+    padding-right: calc(var(--dl-space-space-oneandhalfunits)/2);
+    padding-bottom: calc(var(--dl-space-space-halfunit)/2);
+    background-color: var(--dl-color-custom-primary1);
+}
+
+.hrefText {
+    color: var(--dl-color-custom-primary1);
+    font-family: Overpass;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.hrefText:hover {
+    color: var(--dl-color-custom-primary2);
+}
