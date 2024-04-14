@@ -13,6 +13,18 @@ export async function scan(req, res) {
 
   try {
     const preProcessedImage = await preProcessImage(base64versionImage);
+
+    const imageCheck = (
+      await getJobDone(preProcessedImage, createRectangles("image-check"))
+    )[0];
+    console.log(imageCheck);
+    if (imageCheck !== "Semester") {
+      return res.json({
+        ocrResponse: "Error",
+        formattedString: "Wrong image provided.",
+      });
+    }
+
     const currentSemesterNumber = convertRomanNumeralToInteger(
       (await getJobDone(preProcessedImage, createRectangles("semester")))[0]
     );
@@ -137,11 +149,11 @@ export async function scan(req, res) {
     });
 
     res.json({
-      ocrResponse: [registrationNumber, currentSemesterNumber],
+      ocrResponse: "Success",
       formattedString: formatted,
     });
   } catch (error) {
-    console.error("Error processing OCR:", error.message);
+    console.error("Error inside scan function:", error.message);
     res.json({ ocrResponse: "Error", formattedString: error.message });
   }
 }

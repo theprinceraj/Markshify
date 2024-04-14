@@ -1,5 +1,4 @@
 import sharp from "sharp";
-// import { writeFileSync } from "fs";
 export async function preProcessImage(base64Image) {
   const imageBuffer = Buffer.from(
     base64Image.split(";base64,").pop(),
@@ -7,9 +6,9 @@ export async function preProcessImage(base64Image) {
   );
   let sharpInstance = sharp(imageBuffer);
   const metadata = await sharpInstance.metadata();
-  if (metadata.width < 2113 + 181 || metadata.height < 1807 + 805) {
+  if (metadata.width < 2480 || metadata.height < 3505) {
     throw new Error(
-      "Image dimensions are insufficient for extraction. Please provide an image with a width of at least 2294 and a height of at least 2612."
+      "Image dimensions are insufficient for extraction. Please provide an image with a width of at least 2480 and a height of at least 3505."
     );
   }
   let response = await sharpInstance
@@ -23,7 +22,6 @@ export async function preProcessImage(base64Image) {
     b: 0,
     alpha: 1,
   });
-  // writeFileSync("./lol.jpg", preProcessedImage);
   return preProcessedImage;
 }
 
@@ -59,7 +57,7 @@ async function addBorder(buffer, borderSize, borderColor) {
     return result;
   } catch (err) {
     console.error(
-      "Error occurred in the addBorder function. Error: \n" + err + "\n"
+      "Error occurred in the addBorder function:" + err + "\n"
     );
   }
 }

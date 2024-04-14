@@ -14,24 +14,24 @@ export async function uploadStudentData({
   sgpa,
   cgpa,
 }) {
-  if (
-    !regNo ||
-    !studentName ||
-    !fatherName ||
-    !motherName ||
-    !courseName ||
-    !semester ||
-    !subCode ||
-    !totalMarks ||
-    isPractical == (undefined || null) ||
-    !sgpa ||
-    !cgpa
-  ) {
-    throw new Error(
-      "One of the variables passed to uploadStudentData function is undefined or falsy"
-    );
-  }
   try {
+    if (
+      !regNo ||
+      !studentName ||
+      !fatherName ||
+      !motherName ||
+      !courseName ||
+      !semester ||
+      !subCode ||
+      !totalMarks ||
+      isPractical == (undefined || null) ||
+      !sgpa ||
+      !cgpa
+    ) {
+      throw new Error(
+        "One of the variables passed to uploadStudentData function is undefined or falsy"
+      );
+    }
     const studentRef = collection(db, "students");
     await addDoc(studentRef, {
       "Registration Number": parseInt(regNo),

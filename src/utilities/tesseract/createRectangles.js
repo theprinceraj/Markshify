@@ -27,6 +27,15 @@
  */
 export function createRectangles(type) {
   switch (type) {
+    case "image-check":
+      return [
+        {
+          left: 5,
+          top: 0,
+          width: 160,
+          height: 66,
+        },
+      ];
     case "semester":
       return [
         {
