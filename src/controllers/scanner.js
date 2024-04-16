@@ -17,7 +17,6 @@ export async function scan(req, res) {
     const imageCheck = (
       await getJobDone(preProcessedImage, createRectangles("image-check"))
     )[0];
-    console.log(imageCheck);
     if (imageCheck !== "Semester") {
       return res.json({
         ocrResponse: "Error",
