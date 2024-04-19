@@ -150,8 +150,7 @@
                 </nav>
                 <div class="home-buttons1">
                   <button class="buttonFilled">
-                    <a
-                      href="https://github.com/theprinceraj/Markshify"
+                    <a href="https://github.com/theprinceraj/Markshify"
                       >Github</a
                     >
                   </button>
@@ -208,11 +207,15 @@
                 />
                 <button class="buttonFilled" id="scan-btn">
                   <span>
-                    <span>Upload Marksheet</span>
-                    <br />
+                    <span id="scan-btn-text">Upload Marksheet</span>
+                    <div class="load-3 hidden">
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                    </div>
                   </span>
                 </button>
-                <div class="loader hidden"></div>
+                <!-- <div class="loader hidden"></div> -->
                 <a href="/api/generate" class="buttonFilled">Get CSV</a>
               </form>
             </div>
@@ -226,13 +229,7 @@
                   <span>FAQ</span>
                   <br />
                 </span>
-                <h2 class="home-text23 heading2">Common questions</h2>
-                <span class="home-text24 bodyLarge">
-                  <span>
-                    Here are some of the most common questions that we get.
-                  </span>
-                  <br />
-                </span>
+                <h2 class="home-text23 heading2">Frequently Asked Questions</h2>
               </div>
               <div class="home-container3">
                 <div class="question1-container">
@@ -247,7 +244,7 @@
                       You can easily convert your semester marksheets to CSV
                       files by first selecting the marksheet image from your
                       gallery. Next, you need to click the
-                      <span class="fakeButtonFilled">Upload Marksheet</span>
+                      <div class="fakeButtonFilled">Upload Marksheet</div>
                       button and wait for some alert. Once you get a successful
                       alert, click on the
                       <span class="fakeButtonFilled">Get CSV</span> button to

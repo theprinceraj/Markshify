@@ -325,10 +325,6 @@ html {
     margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 
-.home-text24 {
-    text-align: left;
-}
-
 .home-container3 {
     gap: var(--dl-space-space-oneandhalfunits);
     display: flex;

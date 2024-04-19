@@ -399,6 +399,7 @@ nav {
 }
 
 .fakeButtonFilled {
+    display: inline-block;
     color: var(--dl-color-custom-neutral-light);
     font-family: Overpass;
     font-weight: bold;
