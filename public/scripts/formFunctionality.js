@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const selectedFile = inputFile.files[0];
     if (selectedFile) {
+      const loadingSpinner = document.querySelector(".loader");
+      loadingSpinner.classList.remove("hidden");
       const [ocrString, formattedString] = await sendApiReq(selectedFile);
       displayOcrResponse(ocrString, formattedString);
+      loadingSpinner.classList.add("hidden");
     } else {
       console.log("No file selected");
     }
