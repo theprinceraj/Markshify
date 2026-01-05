@@ -58,6 +58,7 @@ export async function preProcessImage(base64Image) {
             .normalize() // Normalize contrast
             .sharpen({ sigma: 1.0 }) // Slight sharpening for text clarity
             .png({ compressionLevel: 6 }) // Convert to PNG
+            .withMetadata({ density: 300 }) // Set DPI to 300 for OCR
             .toBuffer({ resolveWithObject: false });
 
         // Add border for edge detection
@@ -117,6 +118,7 @@ async function addBorder(buffer, borderSize, borderColor) {
                 },
             ])
             .png()
+            .withMetadata({ density: 300 }) // Set DPI to 300 for OCR
             .toBuffer();
 
         return result;
